@@ -1,3 +1,72 @@
+# 不要被骗了，这只是一个渲染库，连例子都没有，更没有编辑器
+
+
+
+有点问题，已经在这个fork仓库改过了
+
+## 依赖有亿点多
+
+### 1.依赖cmake 
+
+需要单独安装
+
+### 2.依赖fbxsdk 
+
+需要单独安装  
+需要拷贝到tools/fbx_converter 有说明  
+https://www.autodesk.com/content/dam/autodesk/www/adn/fbx/2020-2-1/fbx202021_fbxsdk_vs2017_win.exe  
+我下载的是这个版本，测试通过  
+
+### 3.依赖 python
+
+需单独安装  
+单独安装了Python 3.6没用，他还是去调用system的python（windows store 安装的3.10）  
+还依赖库  
+pip install pypeg2  
+
+### 依赖mingw ，我有，但是好像没有也可以（仅go 模块用到）
+
+### 依赖pkg-config ，不知道vcpkg行不行，两个我都有，就不卸载测试了
+
+
+## 编译方法
+
+有问题的编译点是fbxsdk 和 openal  
+openal已经换成了预编译的，不用管了  
+fbxsdk 太大，需自行下载
+
+
+### 1.拉代码 包含子模块
+
+假设仓库目录为 c:\harfang3d  
+后续说明需要相对一个目录  
+
+### 2.创建目录 
+
+创建如下目录 c:\harfang3d\build\cmake  
+
+### 3.拉取仓库fabgen
+
+拉取 https://github.com/ejulien/FABGen.git
+
+到如下目录
+
+c:\harfang3d\build\fabgen
+
+### 4.执行camke
+
+c:\harfang3d\build\cmake 目录 下执行cmake
+
+cmake ../.. -G "Visual Studio 17 2022" -A x64 
+
+Readme写的参数一个都没用
+
+### 5.vs 打开解决方案并编译
+
+如果上面没出错 解决方案在 c:\harfang3d\build\cmake\harfang.sln
+
+如果出错了，需根据cmakelog 排查
+
 <img src="https://github.com/harfang3d/image-storage/raw/main/brand/logo_harfang3d_owl_only.png" align="right" width="200"/>
 
 # HARFANG® 3D engine
