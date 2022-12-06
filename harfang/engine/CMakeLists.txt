@@ -114,10 +114,13 @@ endif()
 
 add_library(engine STATIC ${SRCS} ${HDRS})
 
+target_include_directories(engine PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/openal/include)
+target_link_libraries(engine PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/openal/OpenAL32.lib)
+
 target_link_libraries(engine PUBLIC bind_hg_lua script foundation platform bgfx imgui jsonhpp meshoptimizer PRIVATE stb_truetype stb_vorbis stb_image_write)
 
 if(NOT (CMAKE_SYSTEM_NAME STREQUAL "Emscripten"))
-	target_link_libraries(engine PRIVATE OpenAL)
+	target_link_libraries(engine PRIVATE)
 endif()
 
 target_link_libraries(engine PRIVATE miniz mikktspace)

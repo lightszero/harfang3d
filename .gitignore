@@ -9,3 +9,5 @@ build
 dist
 commit_id
 *.DS_Store
+/tools/fbx_converter/fbxsdk/include
+/tools/fbx_converter/fbxsdk/x64

@@ -209,26 +209,26 @@ endif()
 
 # OpenAL soft
 if(NOT (CMAKE_SYSTEM_NAME STREQUAL "Emscripten"))
-message("Configuring OpenAL soft")
+#message("Configuring OpenAL soft")
 
-set(ALSOFT_UTILS OFF CACHE BOOL "OpenAL soft: Build and install utility programs")
-set(ALSOFT_EXAMPLES OFF CACHE BOOL "OpenAL soft: Build and install example programs")
-set(ALSOFT_TESTS OFF CACHE BOOL "OpenAL soft: Build and install test programs")
-set(ALSOFT_CONFIG OFF CACHE BOOL "OpenAL soft: Install alsoft.conf sample configuration file")
-set(ALSOFT_INSTALL OFF CACHE BOOL "OpenAL soft: Install headers and libraries")
-set(LIBTYPE STATIC)  # build as static library
-add_subdirectory(openal-soft EXCLUDE_FROM_ALL)
-target_include_directories(OpenAL PRIVATE openal-soft-hrtf)
-target_include_directories(OpenAL PUBLIC $<BUILD_INTERFACE:${OpenAL_SOURCE_DIR}/include>)
-target_compile_definitions(OpenAL PUBLIC ALSOFT_EMBED_HRTF_DATA=1 AL_LIBTYPE_STATIC=1) # make sure to correctly propagate this flag to consuming librairies
-set_target_properties(OpenAL PROPERTIES FOLDER "harfang/3rdparty")
+#set(ALSOFT_UTILS OFF CACHE BOOL "OpenAL soft: Build and install utility programs")
+#set(ALSOFT_EXAMPLES OFF CACHE BOOL "OpenAL soft: Build and install example programs")
+#set(ALSOFT_TESTS OFF CACHE BOOL "OpenAL soft: Build and install test programs")
+#set(ALSOFT_CONFIG OFF CACHE BOOL "OpenAL soft: Install alsoft.conf sample configuration file")
+#set(ALSOFT_INSTALL OFF CACHE BOOL "OpenAL soft: Install headers and libraries")
+#set(LIBTYPE STATIC)  # build as static library
+#add_subdirectory(openal-soft EXCLUDE_FROM_ALL)
+#target_include_directories(OpenAL PRIVATE openal-soft-hrtf)
+#target_include_directories(OpenAL PUBLIC $<BUILD_INTERFACE:${OpenAL_SOURCE_DIR}/include>)
+#target_compile_definitions(OpenAL PUBLIC ALSOFT_EMBED_HRTF_DATA=1 AL_LIBTYPE_STATIC=1) # make sure to correctly propagate this flag to consuming librairies
+#set_target_properties(OpenAL PROPERTIES FOLDER "harfang/3rdparty")
 
 # ... try to fix include directories
-get_target_property(OpenAL_include_dirs OpenAL INTERFACE_INCLUDE_DIRECTORIES)
-list(REMOVE_ITEM OpenAL_include_dirs "$<INSTALL_INTERFACE:include>")
-set_property(TARGET OpenAL PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${OpenAL_include_dirs})
+#get_target_property(OpenAL_include_dirs OpenAL INTERFACE_INCLUDE_DIRECTORIES)
+#list(REMOVE_ITEM OpenAL_include_dirs "$<INSTALL_INTERFACE:include>")
+#set_property(TARGET OpenAL PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${OpenAL_include_dirs})
 
-install_cppsdk_external_target(OpenAL)
+#install_cppsdk_external_target(OpenAL)
 
 endif()
 

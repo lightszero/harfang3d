@@ -29,9 +29,9 @@
 #include <foundation/time.h>
 #include <foundation/vector3.h>
 
-#include "fabgen.h"
+#include "../../binding/fabgen.h"
 
-#include "bind_Lua.h"
+#include "../../binding/bind_Lua.h"
 
 #include <iostream>
 #include <mutex>
